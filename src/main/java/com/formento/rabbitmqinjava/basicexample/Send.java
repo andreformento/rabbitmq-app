@@ -1,4 +1,4 @@
-package com.formento.rabbitmqinjava;
+package com.formento.rabbitmqinjava.basicexample;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -10,6 +10,7 @@ public class Send {
 
     private final static String QUEUE_NAME = "hello";
 
+    // And after run Recv.java, run this
     public static void main(String[] args) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");

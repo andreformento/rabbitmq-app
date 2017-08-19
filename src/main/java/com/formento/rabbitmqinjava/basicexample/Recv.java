@@ -1,4 +1,4 @@
-package com.formento.rabbitmqinjava;
+package com.formento.rabbitmqinjava.basicexample;
 
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
@@ -8,11 +8,13 @@ import com.rabbitmq.client.Consumer;
 import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 public class Recv {
 
     private final static String QUEUE_NAME = "hello";
 
+    // Run this first
     public static void main(String[] argv) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
@@ -27,7 +29,7 @@ public class Recv {
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
                 throws IOException {
                 String message = new String(body, "UTF-8");
-                System.out.println(" [x] Received '" + message + "'");
+                System.out.println(" [x] Received '" + message + "' " + LocalDateTime.now());
             }
         };
         channel.basicConsume(QUEUE_NAME, true, consumer);
