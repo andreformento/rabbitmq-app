@@ -23,7 +23,7 @@ docker kill rabbit-management && docker rabbit-management
 #### Logs
 See logs (`--follow` to tail):
 ```
-docker logs [--follow] some-rabbit
+docker logs [--follow] rabbit-app
 ```
 
 ### References
