@@ -14,7 +14,7 @@ compileJava {
 apply plugin: 'docker'
 
 jar {
-    baseName = 'rabbitmq-in-java'
+    baseName = 'rabbitmq-app'
     version = '1.0.0-SNAPSHOT' //${project.version}
 }
 

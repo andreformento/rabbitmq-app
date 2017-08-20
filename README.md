@@ -1,4 +1,4 @@
-# rabbitmq-in-java
+# rabbitmq-app
 
 ### Build application
 ```

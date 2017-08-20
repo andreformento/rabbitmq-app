@@ -15,4 +15,4 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'rabbitmq-in-java'
+rootProject.name = 'rabbitmq-app'
