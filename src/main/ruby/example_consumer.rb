@@ -4,7 +4,7 @@ require "bunny"
 require "json"
 
 #Returns a connection instance
-conn = Bunny.new ENV['CLOUDAMQP_URL']
+conn = Bunny.new(:host => "localhost", :vhost => "rabbit1", :user => "guest", :password => "guest")
 #The connection will be established when start is called
 conn.start
 
@@ -15,7 +15,7 @@ q  = ch.queue("examplequeue", :durable => true)
 
 #Method for the PDF processing
 def pdf_processing(json_information_message)
-  puts "Handling pdf processing for:
+  puts "Handling pdf processing for:"
   puts json_information_message['email']
   sleep 5.0
   puts "pdf processing done"
