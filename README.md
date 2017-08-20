@@ -1,5 +1,10 @@
 # rabbitmq-in-java
 
+### Build application
+```
+gradle buildDocker
+```
+
 ### Using Docker
 ```
 docker-compose up [-d]
