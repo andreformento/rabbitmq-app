@@ -4,7 +4,7 @@ require "bunny"
 require "json"
 
 #Returns a connection instance
-conn = Bunny.new ENV['CLOUDAMQP_URL']
+conn = Bunny.new(:host => "localhost")
 #The connection will be established when start is called
 conn.start
 
