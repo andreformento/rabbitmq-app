@@ -17,10 +17,16 @@ public class Send {
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
-        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-        String message = "Hello World!";
-        channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
-        System.out.println(" [x] Sent '" + message + "'");
+        for (int i = 0; i < 200000; i++) {
+
+            channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+            String message = "Hello World! " + i;
+            channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
+
+            if (i % 100 == 0) {
+                System.out.println(" [x] Sent '" + message + "'");
+            }
+        }
 
         channel.close();
         connection.close();

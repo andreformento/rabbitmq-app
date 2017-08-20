@@ -10,14 +10,14 @@ docker run -d --hostname my-rabbit --name rabbit-app -p 5672:5672 rabbitmq:3
 
 #### Management Plugin
 ```
-docker run -d --hostname my-rabbit --name rabbit-management -p 15672:15672 -e RABBITMQ_DEFAULT_USER=user -e RABBITMQ_DEFAULT_PASS=123 rabbitmq:3-management
+docker run -d --hostname my-rabbit --name rabbit-management -p 15672:15672 -e RABBITMQ_DEFAULT_VHOST=my-rabbit rabbitmq:3-management
 ```
-Acces on http://localhost:15672 with username `user` and password `123`
+Acces on http://localhost:15672 with username `guest` and password `guest`
 
 #### To exterminate all RabbitMQ docker containers :)
 ```
 docker kill rabbit-app && docker rm rabbit-app
-docker kill rabbit-management && docker rabbit-management
+docker kill rabbit-management && docker rm rabbit-management
 ```
 
 #### Logs
