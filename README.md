@@ -18,6 +18,7 @@ gem install json
 To run
 ```
 ruby src/main/ruby/example_consumer.rb
+ruby src/main/ruby/example_publisher.rb
 ```
 
 ### Using Docker
