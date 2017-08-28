@@ -1,4 +1,4 @@
-package com.formento.rabbitmqinjava.basicexample;
+package com.formento.rabbitmqapp.basicexample;
 
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
