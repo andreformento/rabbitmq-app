@@ -1,26 +1,29 @@
 buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
+	ext {
+		springBootVersion = '1.5.6.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath('se.transmode.gradle:gradle-docker:1.2')
-    }
+	}
 }
 
-apply plugin: 'java-library'
-compileJava {
-    sourceCompatibility = '1.8'
-}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
 apply plugin: 'docker'
 
 jar {
     baseName = 'rabbitmq-app'
-    version = '1.0.0-SNAPSHOT' //${project.version}
+//    version = '1.0.0-SNAPSHOT' //${project.version}
 }
 
 task buildDocker(type: Docker, dependsOn: build) {
     push = false
-    applicationName = jar.baseName
+    applicationName = 'andreformento/' + jar.baseName
     dockerfile = file('src/main/docker/Dockerfile')
     doFirst {
         copy {
@@ -30,18 +33,15 @@ task buildDocker(type: Docker, dependsOn: build) {
     }
 }
 
+//version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
 repositories {
-    mavenCentral()
+	mavenCentral()
 }
 
 dependencies {
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation 'com.google.guava:guava:22.0'
-
-    // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
-
-    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
-    compile group: 'com.rabbitmq', name: 'amqp-client', version: '4.2.0'
-
+	compile('org.springframework.boot:spring-boot-starter-amqp')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

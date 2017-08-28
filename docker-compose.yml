@@ -17,9 +17,9 @@ services:
       - 'rabbitmq_data:/andreformento'
       - './enabled_plugins:/etc/rabbitmq/enabled_plugins'
   rabbitmq-app:
-    image: 'rabbitmq-app'
+    image: 'andreformento/rabbitmq-app'
     ports:
-      - '8080:8080'
+      - '8081:8080'
 volumes:
   rabbitmq_data:
     driver: local
