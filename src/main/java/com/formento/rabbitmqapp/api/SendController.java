@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import static org.springframework.util.StringUtils.isEmpty;
+
 @RestController
 @RequestMapping("/queue")
 public class SendController {
@@ -20,7 +22,7 @@ public class SendController {
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public void send(final String message) {
-        rabbitTemplate.convertAndSend(ApiApplication.queueName, message == null ? "Hello from RabbitMQ!" : message);
+        rabbitTemplate.convertAndSend(ApiApplication.queueName, isEmpty(message) ? "Hello from RabbitMQ!" : message);
     }
 
 }

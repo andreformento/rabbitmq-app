@@ -31,3 +31,5 @@ Access on http://localhost:15672 with username `guest` and password `guest`
 - https://github.com/rabbitmq/rabbitmq-tutorials/tree/master/java
 - https://www.rabbitmq.com/tutorials/tutorial-one-java.html
 - https://www.cloudamqp.com/blog/2015-05-18-part1-rabbitmq-for-beginners-what-is-rabbitmq.html
+- https://spring.io/guides/gs/messaging-rabbitmq
+- https://docs.spring.io/spring-amqp/reference/html/_introduction.html
