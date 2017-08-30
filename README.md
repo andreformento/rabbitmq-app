@@ -8,7 +8,14 @@ Requirements
 - Gradle
 ```
 gradle buildDocker
+docker-compose up
 ```
+
+Call
+```
+curl -X POST 'http://localhost:8081/queue?message=my-custom-message'
+```
+
 ##### Ruby
 Before
 ```
