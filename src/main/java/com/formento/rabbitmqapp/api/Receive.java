@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.CountDownLatch;
 
 @Component
-public class Receiver {
+public class Receive {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Receiver.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Receive.class);
 
     private CountDownLatch latch = new CountDownLatch(1);
 

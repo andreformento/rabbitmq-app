@@ -46,8 +46,8 @@ public class ApiApplication {
     }
 
     @Bean
-    MessageListenerAdapter listenerAdapter(Receiver receiver) {
-        return new MessageListenerAdapter(receiver, "receiveMessage");
+    MessageListenerAdapter listenerAdapter(Receive receive) {
+        return new MessageListenerAdapter(receive, "receiveMessage");
     }
 
 }

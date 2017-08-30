@@ -20,6 +20,8 @@ services:
     image: 'andreformento/rabbitmq-app'
     ports:
       - '8081:8080'
+    links:
+      - "rabbitmq"
 volumes:
   rabbitmq_data:
     driver: local
